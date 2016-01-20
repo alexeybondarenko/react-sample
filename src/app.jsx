@@ -3,6 +3,7 @@ var ReactDOM = require('react-dom');
 
 var Book = require('./components/book');
 var BookItem = require('./components/book-item');
+var Progress = require('./components/progress');
 
 var book = {
   title: 'Самонаблюдение, иcходя из того, что однократно.',
@@ -15,32 +16,42 @@ var book = {
   sections: [
     {
       id: 0,
-      name: 'Трансцендентальный интеллект: основные моменты'
+      name: 'Трансцендентальный интеллект: основные моменты',
+      progress: .8
     },
     {
       id: 1,
-      name: 'Филосовский филогенез: основные моменты'
+      name: 'Филосовский филогенез: основные моменты',
+      progress: 1
     },
     {
       id: 2,
-      name: 'Сенсибельный закон исключённого третьего: основные моменты'
+      name: 'Сенсибельный закон исключённого третьего: основные моменты',
+      progress: .1
     }
   ]
 };
 
 
 var Hello = React.createClass({
+  renderBookSectionItem: function (section) {
+    var progressBar =  (section.progress < 1) ? (<Progress value={section.progress}/>) : null;
+    return <div className="list__item" key={section.id}>
+      {section.name}
+      {progressBar}
+    </div>
+  },
   render: function() {
     return <div id="book-page">
       <Book {...book}/>
       <h2>Содержание</h2>
-      <ol className="list list--decimal">
+      <div className="list list--decimal">
         {
           book.sections.map(function (section) {
-            return <li key={section.id}>{section.name}</li>
-          })
+            return this.renderBookSectionItem(section);
+          }.bind(this))
         }
-      </ol>
+      </div>
       <h3>Другие книги автора (Д.Майерс)</h3>
       <div className="list list--scroll">
         <div className="list__item">

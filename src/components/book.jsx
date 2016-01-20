@@ -9,7 +9,7 @@ module.exports = React.createClass({
     },
     renderProgress: function () {
         if (!this.props.in_progress) return null;
-        return <span className="badge">в процессе</span>;
+        return <div className="badge">в процессе</div>;
     },
     renderPoster: function () {
         if (!this.props.posterUrl) return null;
@@ -23,8 +23,14 @@ module.exports = React.createClass({
             { this.renderPoster() }
             <div className="book__info">
                 <h1 className="book__title">
-                    <span>{this.props.title}</span>
-                    <span>{this.renderProgress()}</span>
+                    <span>{this.props.title} </span>
+                    <div className="book__badge">
+                        <div className="badge-group">
+                            {this.renderProgress()}
+                            {this.renderProgress()}
+                            {this.renderProgress()}
+                        </div>
+                    </div>
                 </h1>
                 <h3 className="book__author">{this.props.author} {this.props.year}</h3>
                 <p>{this.props.description}</p>

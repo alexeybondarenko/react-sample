@@ -18,16 +18,17 @@ $book-poster-width: 140px !default
 $book-poster-padding: 20px !default
 
 $book-shadow: 0 3px 2px -2px rgba(black, .3)
+
 .book
   clear: both
 
   +clearfix
   &__title
     margin-top: 5px
+  &__badge
+    text-align: center
+    margin-top: 10px
 
-    .badge
-      vertical-align: top
-      //margin-left: 5px
   &__poster
     width: $book-poster-width
     height: 200px
@@ -45,6 +46,13 @@ $book-shadow: 0 3px 2px -2px rgba(black, .3)
     margin-top: $book-poster-padding
 
   +min($book-breakpoint)
+
+    &__badge
+      text-align: left
+      display: inline-block
+      .badge
+        vertical-align: top
+        margin-top: .3em
 
     &__poster + &__info
       margin-left: $book-poster-padding + $book-poster-width
