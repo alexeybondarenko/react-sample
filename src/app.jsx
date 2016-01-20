@@ -52,6 +52,13 @@ var Hello = React.createClass({
           }.bind(this))
         }
       </div>
+      <div className="list list--decimal">
+        {
+            book.sections.map(function (section) {
+                return this.renderBookSectionItem(section);
+                }.bind(this))
+            }
+      </div>
       <h3>Другие книги автора (Д.Майерс)</h3>
       <div className="list list--scroll">
         <div className="list__item">

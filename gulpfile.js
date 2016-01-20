@@ -8,6 +8,7 @@ var notifier = require('node-notifier');
 var server = require('gulp-server-livereload');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 var watch = require('gulp-watch');
 
 var deploy = require('gulp-gh-pages');
@@ -79,6 +80,10 @@ gulp.task('sass', function () {
   gulp.src('./sass/**/*.{sass,scss}')
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('style.css'))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(gulp.dest('./'));
 });
 
