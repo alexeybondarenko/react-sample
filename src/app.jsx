@@ -1,11 +1,15 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var Book = require('./components/book');
+
 var Hello = React.createClass({
   render: function() {
-    return <h1 className="red">
-      Hello!
-    </h1>
+    return <div>
+      <Book />
+      <Book />
+      <Book />
+    </div>
   }
 });
 

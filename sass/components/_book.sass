@@ -1,0 +1,81 @@
+/***
+  Book
+
+  ## Examples
+  ```
+  <div class="book">
+      <div class="book__info">
+          <div class="book__poster">
+              <img src="images/placeholder.png" alt=""/>
+          </div>
+          <h1 class="book__title">Самонаблюдение, иcходя из того, что однократно.</h1>
+      </div>
+      <div class="book__block">
+          Some aditional information about the book
+      </div>
+      <div class="book__block">
+          <h3>Другие книги автора (<a href="#/author/1">Д.Майерс</a>)</h3>
+      </div>
+      <div class="book__block">
+          <h3>Читатели также выбирают</h3>
+          {% include "./books.html" %}
+      </div>
+  </div>
+  ```
+
+$book-breakpoint: 600px !default
+$book-poster-width: 140px !default
+$book-poster-padding: 20px !default
+.book
+  clear: both
+  padding: $book-poster-padding
+  &__title
+    margin-top: 5px
+  &__poster
+    width: $book-poster-width
+    height: 200px
+    margin: 0 auto 1.5 * $book-poster-padding
+    background-color: #f9f9f9
+    box-shadow: 0 3px 2px -2px rgba(black, .3)
+    img
+      width: 100%
+      height: 100%
+  &__title, &__author, &__btns, &__readers
+    text-align: center
+  &__info
+    margin-top: 0
+  &__actions
+    margin-top: $book-poster-padding
+
+  +min($book-breakpoint)
+
+    &__poster + &__info
+      margin-left: $book-poster-padding + $book-poster-width
+    &__poster
+      float: left
+      margin-top: 0
+      margin-bottom: 0
+    &__title, &__author, &__btns, &__readers
+      text-align: left
+    &__btns, &__readers
+      display: inline-block
+      vertical-align: middle
+    &__readers
+      margin-left: 10px
+
+  //&--small
+  //  display: inline-block
+  //  .book__poster
+  //    width: 100px
+  //    height: 140px
+  //    float: none
+  //    margin: 0
+  //    padding: 0
+  //  .book__title
+  //    display: block
+  //    max-height: 40px
+  //    text-overflow: ellipsis
+  //    overflow: hidden
+  //    white-space: pre-line
+  //    font-size: .9em
+  //    margin: 0
