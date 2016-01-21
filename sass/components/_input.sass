@@ -1,7 +1,29 @@
+
+/**
+  Input
+
 .input
-  width: 100%
+
+  display: inline-block
+
+  appearance: none
+  max-width: 100%
+  padding: 15px
+  min-height: 47px
+
+  box-sizing: border-box
+
+  border: 1px solid #ccc
+
+  line-height: 1
+
+.input-group
   display: inline-block
   border: 1px solid #ccc
-  padding: 5px 10px
-  box-sizing: border-box
-  min-height: 30px
+  .input, .btn
+    &:first-child
+      margin-left: -1px
+    &:last-child
+      margin-right: -1px
+      
+    margin: -1px 0

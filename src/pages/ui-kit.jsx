@@ -9,6 +9,7 @@ module.exports = React.createClass({
                 <button className="btn">.btn</button>
                 <div className="btn btn--default">.btn .btn--default</div>
                 <a className="btn btn--primary">.btn .btn--primary</a>
+                <a className="btn btn--primary"></a>
             </div>
             <h3>Buttons with icons</h3>
             <div>
@@ -45,10 +46,40 @@ module.exports = React.createClass({
                 some text <div className="badge">badge</div>
             </div>
             <h3>Badge group (.badge-group)</h3>
-            <div  className="badge-group">
+            <div className="badge-group">
                 <div className="badge">default</div>
                 <span className="badge badge--primary">.badge--primary</span>
             </div>
+            <h2>Input</h2>
+            <div>
+                <div className="input" contentEditable>Input with div</div>
+                <input type="text" className="input" placeholder="Placeholder"/>
+            </div>
+            <h3>Input with buttons</h3>
+            <h4>Default</h4>
+            <div>
+                <p>
+                    <input type="text" className="input"/>
+                    <button className="btn btn--primary">Save</button>
+                </p>
+            </div>
+            <h4>Input group (.input-group)</h4>
+            <p>Input group wrap button and input in single block with single border.</p>
+            <div>
+                <p>
+                    <div className="input-group">
+                        <button className="btn"><i className="icon lnr lnr-calendar-full" /></button>
+                        <input type="text" className="input"/>
+                    </div>
+                </p>
+                <p>
+                    <div className="input-group">
+                        <input type="text" className="input"/>
+                        <button className="btn"><i className="icon lnr lnr-user" /></button>
+                    </div>
+                </p>
+            </div>
+
         </div>;
     }
 });
