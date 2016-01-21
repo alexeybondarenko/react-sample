@@ -1,12 +1,43 @@
 var React = require('react');
 
+var Book = require('../components/book');
+var BookItem = require('../components/book-item');
+var Progress = require('../components/progress');
+
+var book = {
+    title: 'Самонаблюдение, иcходя из того, что однократно.',
+    in_progress: 1,
+    author: 'А. Майерc.',
+    year: 2015,
+    description: 'Предсознательное, например, отталкивает закон, следовательно основной закон психофизики: ощущение изменяется пропорционально логарифму раздражителя . Но так как книга Фридмана адресована руководителям и работникам образования, то есть идентификация начинает комплекс. ',
+    readers: 320,
+    posterUrl: 'http://book.ua/i/41/50/Den_Senor_Sol_Singer_Naciya_umnih_ludey_w2.jpg',
+    sections: [
+        {
+            id: 0,
+            name: 'Трансцендентальный интеллект: основные моменты',
+            progress: .8
+        },
+        {
+            id: 1,
+            name: 'Филосовский филогенез: основные моменты',
+            progress: 1
+        },
+        {
+            id: 2,
+            name: 'Сенсибельный закон исключённого третьего: основные моменты',
+            progress: .1
+        }
+    ]
+};
+
 module.exports = React.createClass({
     render: function () {
         return <div>
             <h1>UI Kit</h1>
 
-            <h1>Atoms</h1>
             <hr/>
+            <h1>Atoms</h1>
             <h2>Button</h2>
             <div>
                 <button className="btn">.btn</button>
@@ -71,16 +102,16 @@ module.exports = React.createClass({
             <p>Input group wrap button and input in single block with single border.</p>
             <div>
                 <div>
-                    <div className="input-group">
+                    <p className="input-group">
                         <button className="btn"><i className="icon lnr lnr-calendar-full" /></button>
                         <input type="text" className="input"/>
-                    </div>
+                    </p>
                 </div>
                 <div>
-                    <div className="input-group">
+                    <p className="input-group">
                         <input type="text" className="input"/>
                         <button className="btn"><i className="icon lnr lnr-user" /></button>
-                    </div>
+                    </p>
                 </div>
             </div>
             <h2>Textarea</h2>
@@ -124,8 +155,16 @@ module.exports = React.createClass({
             <div>
                 <a className="link">example.com</a>
             </div>
-            <h1>Molecules</h1>
+            <h2>Progress</h2>
+            <div>
+                <Progress />
+                <Progress value=".3" />
+                <Progress value="1" />
+            </div>
+            <br />
+
             <hr/>
+            <h1>Molecules</h1>
             <h2>List</h2>
             <div>
                 <p>Default width div</p>
@@ -168,6 +207,19 @@ module.exports = React.createClass({
                         })
                     }
                 </div>
+            </div>
+            <h2>Book Item</h2>
+            <div>
+                <BookItem {...book} />
+                <BookItem {...book} />
+                <BookItem {...book} />
+                <BookItem {...book} />
+            </div>
+            <hr/>
+            <h1>Organisms</h1>
+            <h2>Book</h2>
+            <div>
+                <Book {...book} />
             </div>
             <p><br/></p>
             <p><br/></p>

@@ -7,23 +7,25 @@
 @import helpers
 @import base
 
-@import "components/atoms/link"
 
 // Atom
 
+@import "components/atoms/link"
 @import "components/atoms/input"
 @import "components/atoms/textarea"
 @import "components/atoms/btn"
 @import "components/atoms/avatar"
 @import "components/atoms/badge"
 @import "components/atoms/tooltip"
+@import "components/atoms/progress"
 
 // Molecules
 @import "components/molecules/list"
-@import components/logo
 
-@import components/book
-@import components/book-item
+// Organisms
+
+@import "components/organisms/book"
+@import "components/molecules/book-item"
 
 // Modificator
 
@@ -44,28 +46,12 @@
 
 @import components/toolbar
 
-@import components/input-wrap
-
 @import components/search-form
 @import components/comments-form
 
-@import components/book-info
 @import components/profile-header
 
 .block
   //margin: 20px 0
   padding-top: 20px
   font-size: $text-size
-  
-.progress
-  display: inline-block
-  width: 100%
-
-  background-color: $border-color
-
-  overflow: hidden
-  border-radius: 2px
-  height: 2px
-  .progress__in
-    background-color: $primary
-    height: 2px
