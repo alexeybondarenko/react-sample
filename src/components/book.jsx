@@ -36,7 +36,7 @@ module.exports = React.createClass({
                 <p>{this.props.description}</p>
                 <div className="book__actions">
                     <div className="btns-group book__btns">
-                        <button className="btn" onClick={this.addToReads} >Добавить в читаемое</button>
+                        <button className="btn btn--border" onClick={this.addToReads} >Добавить в читаемое</button>
                         <button className="btn btn--primary" onClick={this.buySubscription}>Купить подписку</button>
                     </div>
                     <p className="book__readers text-center text-small">&nbsp;&nbsp;{this.props.readers} уже купили</p>

@@ -11,6 +11,7 @@ var IndexRoute = require('react-router').IndexRoute;
 var IndexPage = require('./pages/index');
 var BookDetailPage = require('./pages/book-detail');
 var SectionDetailPage = require('./pages/section-detail');
+var UIKitPage = require('./pages/ui-kit');
 
 // App layout
 var App = React.createClass({
@@ -34,6 +35,7 @@ ReactDOM.render((
     <Router>
       <Route path="/" component={App}>
         <IndexRoute component={IndexPage} />
+        <Route path="ui-kit" component={UIKitPage} />
         <Route path="books">
           <Route path=":bookId">
             <IndexRoute component={BookDetailPage} />

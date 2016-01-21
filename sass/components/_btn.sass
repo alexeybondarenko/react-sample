@@ -45,56 +45,68 @@
   ```
 
 .btn
-  -webkit-appearance: none
-  background-color: transparent
+
   display: inline-block
-  padding: 10px 15px
-  border-radius: 3px
-  border: 1px solid $border-color-dark
-  font-size: 13px
+  vertical-align: top
+
+  appearance: none
+  background-color: transparent
+
+  padding: 15px
+  max-width: 100%
+
+  min-width: 44px
+
   font-weight: normal
+  text-decoration: none
+
   cursor: pointer
   user-select: none
+
+  border-radius: 3px
+
+  overflow: hidden
+  box-sizing: border-box
+
+  border: 1px solid transparent
+  outline: 0
+
+  line-height: 1.2
+
+  & > *
+    vertical-align: bottom
+    z-index: 1
+
+  &:hover
+    text-decoration: none
+
   &:focus
     outline: none
+
+  &--default
+    border-color: $border-color-dark
+
   &--primary
-    border-radius: 4px
+
     background-color: rgba($primary,1)
+    border-color: darken($primary, 5%) darken($primary, 15%) darken($primary, 40%)
+
     color: white
     font-weight: 600
-    box-shadow: inset 0 1px 0 rgba(white, .3)
-    border-color: darken($primary, 10%)
-    &:active
-      box-shadow: inset 0 1px 0 rgba(black, .1)
-  &--clear
-    border: none
-    line-height: 1
-    &.is-active
-      color: $primary
 
-  &--icon
-    font-size: 0
-    line-height: 0
-    &:hover
-      text-decoration: none
-    &:active
-      color: rgba($text-color,.7)
-    > *
-      font-size: $text-size
-      line-height: 20px
+  .icon
+    margin: 0 5px
+    &:first-child
+      margin-left: 0
+    &:last-child
+      margin-right: 0
 
-  &--checkbox
-    transition: all .25s ease-out
-    &.is-active
-      background-color: $primary
-      color: white
+.btn-group
+  font-family: empty
 
-.btns-group
   margin-left: -5px
   margin-top: -5px
   .btn
+    +f
     margin-left: 5px
     margin-top: 5px
-    display: inline-block
-    vertical-align: top
-    max-width: 100%

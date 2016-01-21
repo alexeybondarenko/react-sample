@@ -1,0 +1,58 @@
+/**
+  Toolbar
+
+  Example:
+
+  <div className="toolbar">
+      <div className="toolbar__in">
+          <div className="toolbar__cell">
+              <a onClick={this.toggleSidebar} className="toolbar__menu-icon btn btn--icon">
+                  <i className="icon lnr lnr-cross"></i>
+              </a>
+          </div>
+          <h2 className="toolbar__cell toolbar__title">
+              <div className="toolbar__cell__in">
+                  <Link to="/books/1">Содержание</Link>
+              </div>
+          </h2>
+          <div className="toolbar__cell">&nbsp;</div>
+      </div>
+  </div>
+
+.toolbar
+  +clearfix
+
+  width: 100%
+  background-color: white
+  border-bottom: 1px solid #ccc
+
+  &__in
+    width: 100%
+    box-sizing: border-box
+    vertical-align: middle
+    display: table
+
+    height: 44px
+
+  &__cell
+    border: 1px solid #f9f9f9
+    display: table-cell
+    vertical-align: middle
+
+    text-align: center
+    min-width: 44px
+
+    text-decoration: none
+    &__in
+      max-height: 44px
+      overflow: hidden
+
+    &:nth-child(2)
+      width: auto
+      overflow: hidden
+      text-overflow: ellipsis
+      font-size: 1.2em
+      max-height: 44px
+      text-align: center
+      a
+        text-decoration: none
