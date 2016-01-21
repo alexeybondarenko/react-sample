@@ -48,7 +48,10 @@ var bundler = watchify(browserify({
 function bundle() {
   return bundler
     .bundle()
-    .on('error', notify)
+    .on('error', function (err) {
+      notify.apply(this, arguments);
+      console.log(err.message);
+    })
     .pipe(source('main.js'))
     .pipe(gulp.dest('./'))
 }
