@@ -3,6 +3,8 @@ var Book = require('../components/book');
 var BookItem = require('../components/book-item');
 var Progress = require('../components/progress');
 
+var Link = require('react-router').Link;
+
 module.exports = React.createClass({
     getDefaultProps: function () {
         var obj = {};
@@ -36,10 +38,10 @@ module.exports = React.createClass({
     },
     renderBookSectionItem: function (section) {
         var progressBar = (section.progress < 1) ? (<Progress value={section.progress}/>) : null;
-        return <div className="list__item" key={section.id}>
+        return <Link to="/books/1/sections/1" className="list__item" key={section.id}>
             {section.name}
             {progressBar}
-        </div>
+        </Link>
     },
     render: function () {
         var book = this.props.book || {};
