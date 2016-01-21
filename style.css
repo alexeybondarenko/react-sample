@@ -367,6 +367,8 @@ th {
   border: 0;
   padding: 0;
   margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   background: transparent; }
 
@@ -504,6 +506,9 @@ blockquote {
   font-size: 13px;
   font-weight: normal;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none; }
   .btn:focus {
     outline: none; }
@@ -1430,6 +1435,8 @@ blockquote {
     line-height: 1.4;
     width: 100%;
     display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     resize: vertical;
     padding: 20px 15px 10px 60px;
