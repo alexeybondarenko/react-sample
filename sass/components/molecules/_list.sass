@@ -32,61 +32,31 @@
   display: block
   margin: 0
   padding: 0
-  font-size: 14px
 
   +clearfix
+
+  user-select: none
 
   $list-item-selectors: 'li, .list__item'
   & > #{$list-item-selectors}
 
     display: block
     margin-bottom: 8px
-    &.is-active
-      font-weight: bold
-      text-decoration: underline
-    &.is-private
-      opacity: .9
-    &.is-progress
-      font-style: italic
-  .list__children
+
+    user-select: initial
+
+  &__children
     margin-left: 40px
-  &--sections
-    +f-serif
-    font-size: 15px
-  &--inline
-    display: inline-block
-    & > #{$list-item-selectors}
-      display: inline-block
-      margin-right: 10px
-  &--nav
-    padding-top: 4px
+
+  // decimal
+
   &--decimal
     & > #{$list-item-selectors}
       display: list-item
       list-style: decimal
       margin-left: 1.5em
-  &--menu
-    margin-bottom: 0
-    & > #{$list-item-selectors}
-      padding: 8px 10px
-      border-width: 1px 0
-      border-style: solid
-      border-color: $border-color
-      margin: -1px 0
-      cursor: pointer
 
-      &:hover
-        background-color: #f9f9f9
-      &:active
-        background-color: $border-color
-
-  &--box
-    & > #{$list-item-selectors}
-      margin-bottom: -1px
-      border: 1px solid $border-color
-  &--blocks
-    & > #{$list-item-selectors}
-      margin-bottom: 20px
+  // scroll
 
   &--scroll
     white-space: nowrap
@@ -98,12 +68,6 @@
     & > #{$list-item-selectors}
       display: inline-block
       vertical-align: top
-      width: 100px
-      margin: 0 10px 0 0
+
+      margin-right: 10px
       white-space: normal
-  &--50
-    font-size: 0
-    & > #{$list-item-selectors}
-      display: inline-block
-      width: 50%
-      font-size: $text-size

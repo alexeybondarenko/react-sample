@@ -35,13 +35,21 @@
   </button>
 
 .tooltip
-  z-index: 3
-  text-align: left
-  background-color: white
+
+  display: inline-block
 
   min-width: 120px
-  +box-style
-  display: inline-block
+  max-width: 100%
+
+  z-index: 3
+  background-color: white
+
+  border: 1px solid rgba(#ccc,.9)
+  box-shadow: 0 1px 1px rgba(#ccc, .4)
+
+  border-radius: 3px
+  box-sizing: border-box
+
   $tooltip-arrow-offset-left: 10px
 
   // arrow inside fill
