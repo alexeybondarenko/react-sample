@@ -15,19 +15,31 @@
   ```
 
 .badge
-  font-size: 11px
+
   display: inline-block
-  vertical-align: text-bottom
-  background: $border-color
+  vertical-align: baseline
+
+  padding: 4px .8em
+
+  background-color: $border-color
   color: #333
+
+  font-size: 11px
   font-weight: 900
   line-height: 1.5
-  padding: 4px 5px
-  border-radius: 12px
+
+  border-radius: 1em
+  border: 0
+
+  &--primary
+    background-color: $primary
+    color: white
 
 .badge-group
+  font-family: empty
   margin-left: -5px
   margin-top: -5px
   .badge
+    +f
     margin-top: 5px
     margin-left: 5px
