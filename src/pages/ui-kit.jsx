@@ -50,10 +50,11 @@ module.exports = React.createClass({
                 <div className="badge">default</div>
                 <span className="badge badge--primary">.badge--primary</span>
             </div>
-            <h2>Input</h2>
+            <h2>Input (.input)</h2>
             <div>
-                <div className="input" contentEditable>Input with div</div>
                 <input type="text" className="input" placeholder="Placeholder"/>
+                <p>also support <i>contenteditable</i> div</p>
+                <div className="input" contentEditable>Input with div</div>
             </div>
             <h3>Input with buttons</h3>
             <h4>Default</h4>
@@ -78,6 +79,10 @@ module.exports = React.createClass({
                         <button className="btn"><i className="icon lnr lnr-user" /></button>
                     </div>
                 </p>
+            </div>
+            <h2>Textarea</h2>
+            <div>
+                <textarea className="textarea">Placeholder text</textarea>
             </div>
 
         </div>;
