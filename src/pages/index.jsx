@@ -8,6 +8,7 @@ module.exports = React.createClass({
             <ul className="list list--decimal">
                 <li><Link to="/">Index</Link></li>
                 <li><Link to="/books/1">Book Detail</Link></li>
+                <li><Link to="/books/1/sections/1">Book Section Detail</Link></li>
             </ul>
         </div>;
     }
