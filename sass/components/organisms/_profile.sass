@@ -4,11 +4,11 @@
   Is Using to presend panel with avatar, name and some additional information, like date of creation
   Example:
 
-  <div class="profile-header">
-      <div class="profile-header__image">
+  <div class="profile">
+      <div class="profile__image">
           <img src="images/users/43.jpg" alt="">
       </div>
-      <div class="profile-header__content">
+      <div class="profile__content">
           <h2>Виктор Пелевин</h2>
           <div>
               <ul class="list list--inline">
@@ -19,18 +19,29 @@
       </div>
   </div>
 
-.profile-header
+.profile
   +clearfix
-  .profile-header__image, .profile-header__content
+  text-align: center
+
+  +min($break-mobile)
+    text-align: left
+
+  &__image, &__content
     vertical-align: middle
-  .profile-header__image
-    display: inline-block
-    margin-right: 20px
-  .profile-header__content
+
+  &__image
+
+    margin-bottom: 20px
+    img
+      @extend .avatar
+      @extend .avatar--big
+
+    +min($break-mobile)
+      display: inline-block
+      margin-right: 20px
+
+  &__content
     display: inline-block
     h2
       margin-bottom: 10px
-  &--nav
-    .profile-header__image
-      margin-left: 20px
-      margin-right: 0
+

@@ -3,6 +3,7 @@ var React = require('react');
 var Book = require('../components/book');
 var BookItem = require('../components/book-item');
 var Progress = require('../components/progress');
+var Profile  = require('../components/profile');
 
 var book = {
     title: 'Самонаблюдение, иcходя из того, что однократно.',
@@ -75,6 +76,15 @@ module.exports = React.createClass({
                     <img src="https://unsplash.it/100/100" className="avatar avatar--big"/>
                 </p>
             </div>
+            <h3>Avatar group</h3>
+            <div>
+                <div className="avatar-group">
+                    <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar avatar--small"/>
+                    <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar avatar--small"/>
+                    <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar"/>
+                    <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar avatar--big"/>
+                </div>
+            </div>
             <h2>Badge</h2>
             <div>
                 some text <div className="badge">badge</div>
@@ -118,6 +128,13 @@ module.exports = React.createClass({
             <div>
                 <textarea className="textarea">Placeholder text</textarea>
             </div>
+            <h2>Search Form</h2>
+            <div>
+                <form className="search-form">
+                    <input type="text" placeholder="Find..." />
+                </form>
+            </div>
+
             <h2>Tooltip</h2>
             <p>Tooltip is using for context menus of button or some helpful info</p>
             <div>
@@ -167,7 +184,6 @@ module.exports = React.createClass({
                 <span>Some text value <span className="online"></span></span>
             </div>
             <br />
-
 
             <hr/>
             <h1>Molecules</h1>
@@ -244,6 +260,61 @@ module.exports = React.createClass({
                                 <span className="icon lnr lnr-cross"></span>
                             </button>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <h2>Profile</h2>
+            <div>
+                <Profile />
+            </div>
+            <h2>Comments Block</h2>
+            <div>
+                <div className="comment">
+                    <i className="comment__control">
+                        <i className="lnr lnr-cross "></i>
+                    </i>
+                    <div className="comment__header">
+                        <div className="avatar-group">
+                            <a href="#/user/1" title="User 1 profile">
+                                <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar avatar--small"/>
+                            </a>
+                            <a href="#/user/1" title="User 1 profile">
+                                <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar avatar--small"/>
+                            </a>
+                            <a href="#/user/1" title="User 1 profile">
+                                <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar avatar--small"/>
+                            </a>
+                        </div>
+                        <span>и еще 14 человек</span>
+                    </div>
+                    <div className="comment__text">
+                        Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст.
+                    </div>
+                    <div className="comment__created-at">
+                        12/23/15 14:23:23
+                    </div>
+                </div>
+                <br/>
+                <div className="comment comment--small">
+                    <i className="comment__control">
+                        <i className="lnr lnr-cross" />
+                    </i>
+                    <div className="comment__header">
+                        <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar avatar--small"/>
+                    </div>
+                    <div className="comment__text">
+                        <a href="" className="link comment__name">Виктория Иванова</a> Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст. Конформность последовательно выбирает психоанализ.
+                    </div>
+                </div>
+                <br/>
+                <div className="comment comment--big">
+                    <div className="comment__header">
+                        <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar avatar--small"/>
+                        <span className="comment__name">Виктория Иванова</span>
+                        <span className="comment__time">2 days ago</span>
+                    </div>
+                    <div className="comment__text">
+                        Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст. Конформность последовательно выбирает психоанализ.
                     </div>
                 </div>
             </div>

@@ -7,8 +7,11 @@ module.exports = React.createClass({
             <h2>Pages</h2>
             <ul className="list list--decimal">
                 <li><Link to="/">Index</Link></li>
+                <li><Link to="/users/1">Users Detail</Link></li>
                 <li><Link to="/books/1">Book Detail</Link></li>
                 <li><Link to="/books/1/sections/1">Book Section Detail</Link></li>
+                <hr/>
+                <li><Link to="/ui-kit">UI Kit</Link></li>
             </ul>
         </div>;
     }

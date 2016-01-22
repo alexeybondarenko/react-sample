@@ -1,0 +1,104 @@
+/**
+  Comments Block
+
+  ## Examples
+
+  ### Basic
+
+  ```
+  <div class="comment">
+    <div class="comment__header">
+        <a href="#/user/1" title="User 1 profile" class="is-active avatar avatar--small">
+            <img src="images/users/17.jpg" alt="User 1 profile img"/>
+        </a>
+        <a href="#/user/1" title="User 1 profile" class="avatar avatar--small">
+            <img src="images/users/20.jpg" alt="User 1 profile img"/>
+        </a>
+        <a href="#/user/1" title="User 1 profile" class="avatar avatar--small">
+            <img src="images/users/43.jpg" alt="User 1 profile img"/>
+        </a>
+        <span>и еще 14 человек</span>
+    </div>
+    <div class="comment__text">
+        Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст.
+        <!--<a href="" class="link">подробнее...</a>-->
+    </div>
+    <div class="comment__created-at">
+        12/23/15 14:23:23
+    </div>
+  </div>
+  ```
+
+  ### Small
+
+  ```
+  <div class="comment comment--small">
+    <i class="comment__control">
+        <i class="lnr lnr-cross "></i>
+    </i>
+    <div class="comment__header">
+        <a href="" class="avatar avatar--small"><img src="images/users/53.jpg" alt=""/></a>
+    </div>
+    <div class="comment__text">
+        <a href="" class="link comment__name">Виктория Иванова</a> Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст. Конформность последовательно выбирает психоанализ.
+    </div>
+  </div>
+  ```
+
+  ### Big
+
+  <div className="comment comment--big">
+      <div className="comment__header">
+          <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar avatar--small"/>
+          <span className="comment__name">Виктория Иванова</span>
+          <span className="comment__time">2 days ago</span>
+      </div>
+      <div className="comment__text">
+          Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст. Конформность последовательно выбирает психоанализ.
+      </div>
+  </div>
+
+.comment
+  +f
+  position: relative
+  display: block
+
+  width: 100%
+
+  &__control
+    float: right
+    font-size: 11px
+    cursor: pointer
+    margin-top: 2px
+
+  &__name
+    font-weight: bold
+    color: $text-light-color
+
+  &__header
+    margin-bottom: 5px
+    .avatar-group
+      margin-right: 10px
+    .comment__name, .comment__time
+      margin-left: 10px
+
+  &__text
+    text-overflow: ellipsis
+  &__created-at
+    margin-top: 10px
+    width: 100%
+    font-size: 12px
+    color: $text-light-color
+
+  &--small
+    .comment__header
+      float: left
+    .comment__text
+      padding-left: 40px
+
+  &--big
+    font-size: 1em
+    .comment__header
+      margin-bottom: 1em
+    .comment__text
+      font-size: 1.1em
