@@ -161,7 +161,13 @@ module.exports = React.createClass({
                 <Progress value=".3" />
                 <Progress value="1" />
             </div>
+            <h2>Online</h2>
+            <p>Small indicator of user online status in right side of block</p>
+            <div>
+                <span>Some text value <span className="online"></span></span>
+            </div>
             <br />
+
 
             <hr/>
             <h1>Molecules</h1>
@@ -220,6 +226,26 @@ module.exports = React.createClass({
             <h2>Book</h2>
             <div>
                 <Book {...book} />
+            </div>
+            <h2>Toolbar</h2>
+            <div>
+                <div className="toolbar">
+                    <div className="toolbar__in">
+                        <div className="toolbar__cell toolbar__icon">
+                            <button className="btn">
+                                <span className="icon lnr lnr-trash"></span>
+                            </button>
+                        </div>
+                        <h2 className="toolbar__cell toolbar__title">
+                            <span>Title</span>
+                        </h2>
+                        <div className="toolbar__cell toolbar__icon">
+                            <button className="btn btn-">
+                                <span className="icon lnr lnr-cross"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <p><br/></p>
             <p><br/></p>

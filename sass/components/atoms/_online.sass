@@ -17,16 +17,21 @@
       <li><a href="profile.html">Борис Акунин</a></li>
   </ul>
   ```
-.is-online
+.online
   display: inline-block
-  position: relative
-  &:before
-    content: ''
-    display: block
-    position: absolute
-    width: 8px
-    height: 8px
-    border-radius: 100%
-    left: -1em
-    top: .5em
-    background-color: $green
+  background-color: $green
+
+  width: .65em
+  height: .65em
+
+  margin-left: .3em
+
+  border-radius: 100%
+
+  overflow: hidden
+  box-sizing: border-box
+
+  vertical-align: baseline
+
+
+

@@ -31,28 +31,29 @@
     box-sizing: border-box
     vertical-align: middle
     display: table
+    table-layout: fixed
 
-    height: 44px
+  &__icon
+    width: 44px
+
 
   &__cell
+
+
     border: 1px solid #f9f9f9
     display: table-cell
+
     vertical-align: middle
 
     text-align: center
-    min-width: 44px
-
     text-decoration: none
-    &__in
-      max-height: 44px
-      overflow: hidden
 
-    &:nth-child(2)
-      width: auto
-      overflow: hidden
-      text-overflow: ellipsis
-      font-size: 1.2em
-      max-height: 44px
-      text-align: center
-      a
-        text-decoration: none
+    background-color: transparent
+
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+  &__title
+    width: auto
+    padding: 0 20px
