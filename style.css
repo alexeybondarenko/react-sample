@@ -382,13 +382,17 @@ th {
   font-size: 1.2em;
   line-height: 1.4; }
 
+@font-face {
+  font-family: empty;
+  src: url(data:application/font-woff;charset=utf-8;base64,d09GRk9UVE8AAAQ0AAoAAAAAA+wAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABDRkYgAAAA9AAAAJ4AAACeXQ48j09TLzIAAAGUAAAAYAAAAGAIIgbWY21hcAAAAfQAAABEAAAARAAyAGlnYXNwAAACOAAAAAgAAAAIAAAAEGhlYWQAAAJAAAAANgAAADb9mzB5aGhlYQAAAngAAAAkAAAAJAHiAeVobXR4AAACnAAAABAAAAAQAAAAAG1heHAAAAKsAAAABgAAAAYABFAAbmFtZQAAArQAAAFdAAABXVqZXRlwb3N0AAAEFAAAACAAAAAgAAMAAAEABAQAAQEBDHNwYWNlLWVtcHR5AAECAAEAOvgcAvgbA/gYBB4KABlT/4uLHgoAGVP/i4sMB4tr+JT4dAUdAAAAfA8dAAAAgREdAAAACR0AAACVEgAFAQEMFxkbHnNwYWNlLWVtcHR5c3BhY2UtZW1wdHl1MHUxdTIwAAACAYkAAgAEAQEEBwoN/JQO/JQO/JQO/JQO+JQU+JQViwwKAAAAAwIAAZAABQAAAUwBZgAAAEcBTAFmAAAA9QAZAIQAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAABAAAAAIAHg/+D/4AHgACAAAAABAAAAAAAAAAAAAAAgAAAAAAACAAAAAwAAABQAAwABAAAAFAAEADAAAAAIAAgAAgAAAAEAIP/9//8AAAAAACD//f//AAH/4wADAAEAAAAAAAAAAAABAAH//wAPAAEAAAABAAAAeR2GXw889QALAgAAAAAAzz54vgAAAADPPni+AAAAAAAAAAAAAAAIAAIAAAAAAAAAAQAAAeD/4AAAAgAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAABQAAAEAAAAAAAOAK4AAQAAAAAAAQAWAAAAAQAAAAAAAgAOAGMAAQAAAAAAAwAWACwAAQAAAAAABAAWAHEAAQAAAAAABQAWABYAAQAAAAAABgALAEIAAQAAAAAACgAoAIcAAwABBAkAAQAWAAAAAwABBAkAAgAOAGMAAwABBAkAAwAWACwAAwABBAkABAAWAHEAAwABBAkABQAWABYAAwABBAkABgAWAE0AAwABBAkACgAoAIcAcwBwAGEAYwBlAC0AZQBtAHAAdAB5AFYAZQByAHMAaQBvAG4AIAAxAC4AMABzAHAAYQBjAGUALQBlAG0AcAB0AHlzcGFjZS1lbXB0eQBzAHAAYQBjAGUALQBlAG0AcAB0AHkAUgBlAGcAdQBsAGEAcgBzAHAAYQBjAGUALQBlAG0AcAB0AHkARwBlAG4AZQByAGEAdABlAGQAIABiAHkAIABJAGMAbwBNAG8AbwBuAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format("woff"); }
+
 html, body {
   height: 100%; }
 
 body {
   margin: 0;
   padding: 0;
-  line-height: 160%;
+  line-height: 1.42;
   color: #333; }
 
 .container {
@@ -437,23 +441,53 @@ blockquote {
   color: #2f6ab4;
   cursor: pointer; }
 
-.input {
-  width: 100%;
-  display: inline-block;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  box-sizing: border-box;
-  min-height: 30px; }
+.link-group {
+  font-family: empty;
+  margin-left: -10px;
+  margin-top: -5px; }
+  .link-group .link {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-left: 10px;
+    margin-top: 5px; }
 
-.textarea {
-  width: 100%;
+/**
+  Input */
+.input {
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px 15px;
-  box-sizing: border-box;
   -webkit-appearance: none;
-  resize: none; }
+  -moz-appearance: none;
+  appearance: none;
+  max-width: 100%;
+  padding: 15px;
+  min-height: 47px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  line-height: 1; }
+
+.input-group {
+  display: inline-block;
+  border: 1px solid #ccc; }
+  .input-group .input, .input-group .btn {
+    margin: -1px 0; }
+    .input-group .input:first-child, .input-group .btn:first-child {
+      margin-left: -1px; }
+    .input-group .input:last-child, .input-group .btn:last-child {
+      margin-right: -1px; }
+
+/**
+  Textarea */
+.textarea {
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  resize: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ccc; }
 
 /**
   # Btn
@@ -501,60 +535,58 @@ blockquote {
   </a>
   ``` */
 .btn {
-  -webkit-appearance: none;
-  background-color: transparent;
   display: inline-block;
-  padding: 10px 15px;
-  border-radius: 3px;
-  border: 1px solid #666;
-  font-size: 13px;
+  vertical-align: top;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  padding: 15px;
+  max-width: 100%;
+  min-height: 47px;
+  min-width: 44px;
   font-weight: normal;
+  text-decoration: none;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+  border-radius: 3px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  outline: 0;
+  line-height: 1.2; }
+  .btn > * {
+    vertical-align: bottom;
+    z-index: 1; }
+  .btn:hover {
+    text-decoration: none; }
   .btn:focus {
     outline: none; }
+  .btn--default {
+    border-color: #666; }
   .btn--primary {
-    border-radius: 4px;
     background-color: #0d66d6;
+    border-color: #0c5bbe #09448e #010a16;
     color: white;
-    font-weight: 600;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    border-color: #0a4fa6; }
-    .btn--primary:active {
-      box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1); }
-  .btn--clear {
-    border: none;
-    line-height: 1; }
-    .btn--clear.is-active {
-      color: #0D66D6; }
-  .btn--icon {
-    font-size: 0;
-    line-height: 0; }
-    .btn--icon:hover {
-      text-decoration: none; }
-    .btn--icon:active {
-      color: rgba(51, 51, 51, 0.7); }
-    .btn--icon > * {
-      font-size: 13px;
-      line-height: 20px; }
-  .btn--checkbox {
-    transition: all .25s ease-out; }
-    .btn--checkbox.is-active {
-      background-color: #0D66D6;
-      color: white; }
+    font-weight: 600; }
+  .btn .icon {
+    margin: 0 5px; }
+    .btn .icon:first-child {
+      margin-left: 0; }
+    .btn .icon:last-child {
+      margin-right: 0; }
 
-.btns-group {
+.btn-group {
+  font-family: empty;
   margin-left: -5px;
   margin-top: -5px; }
-  .btns-group .btn {
+  .btn-group .btn {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin-left: 5px;
-    margin-top: 5px;
-    display: inline-block;
-    vertical-align: top;
-    max-width: 100%; }
+    margin-top: 5px; }
 
 /**
   # Avatar
@@ -591,26 +623,30 @@ blockquote {
       <img src="images/users/17.jpg" alt="User 1 profile img"/>
   </div>
   ``` */
-.avatar {
+.avatar, .profile__image img {
   display: inline-block;
   width: 40px;
   height: 40px;
   border-radius: 100%;
+  vertical-align: middle;
   box-sizing: border-box;
-  overflow: hidden;
-  vertical-align: middle; }
-  .avatar img {
-    height: 100%;
-    width: 100%; }
+  overflow: hidden; }
   .avatar--small {
     width: 30px;
     height: 30px; }
   .avatar--medium {
     width: 60px;
     height: 60px; }
-  .avatar--big {
+  .avatar--big, .profile__image img {
     width: 100px;
     height: 100px; }
+
+.avatar-group {
+  display: inline-block;
+  font-family: empty;
+  padding-left: 5px; }
+  .avatar-group .avatar, .avatar-group .profile__image img, .profile__image .avatar-group img {
+    margin-left: -5px; }
 
 /**
   Badge
@@ -628,20 +664,26 @@ blockquote {
   </h1>
   ``` */
 .badge {
-  font-size: 11px;
   display: inline-block;
-  vertical-align: text-bottom;
-  background: #e3e3e3;
+  vertical-align: baseline;
+  padding: 4px .8em;
+  background-color: #e3e3e3;
   color: #333;
+  font-size: 11px;
   font-weight: 900;
   line-height: 1.5;
-  padding: 4px 5px;
-  border-radius: 12px; }
+  border-radius: 1em;
+  border: 0; }
+  .badge--primary {
+    background-color: #0D66D6;
+    color: white; }
 
 .badge-group {
+  font-family: empty;
   margin-left: -5px;
   margin-top: -5px; }
   .badge-group .badge {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin-top: 5px;
     margin-left: 5px; }
 
@@ -681,15 +723,15 @@ blockquote {
       </div>
   </button> */
 .tooltip {
-  z-index: 3;
-  text-align: left;
-  background-color: white;
+  display: inline-block;
   min-width: 120px;
+  max-width: 100%;
+  z-index: 3;
   background-color: white;
   border: 1px solid rgba(204, 204, 204, 0.9);
   box-shadow: 0 1px 1px rgba(204, 204, 204, 0.4);
   border-radius: 3px;
-  display: inline-block; }
+  box-sizing: border-box; }
   .tooltip:after {
     content: '';
     display: block;
@@ -736,6 +778,82 @@ blockquote {
     position: absolute;
     margin-top: 10px; }
 
+/**
+  Progress
+
+  Progress bar
+
+  Example:
+  <div class="progress">
+    <div class="progress__in" style="width:80%;"></div>
+  </div> */
+.progress {
+  display: inline-block;
+  width: 100%;
+  background-color: #e3e3e3;
+  overflow: hidden;
+  border-radius: 2px;
+  height: 2px; }
+  .progress .progress__in {
+    display: block;
+    background-color: #0D66D6;
+    height: 2px; }
+
+/***
+  Is Online
+
+  State that add to the block green circle on the left side
+
+  ## Examples
+
+  ### Single element
+  ```
+  <a href="profile.html" class="is-online">Анатолий Вассерман</a>
+  ```
+
+  ### List
+  ```
+  <ul class="list">
+      <li><a href="profile.html" class="is-online">Анатолий Вассерман</a></li>
+      <li><a href="profile.html">Борис Акунин</a></li>
+  </ul>
+  ``` */
+.online {
+  display: inline-block;
+  background-color: mediumseagreen;
+  width: .65em;
+  height: .65em;
+  margin-left: .3em;
+  border-radius: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  vertical-align: baseline; }
+
+/***
+  Search Form
+  Search form field.
+
+  ## Example
+
+  ### Compact
+  ```
+  <form class="search-form" action="search.html">
+      <input type="text" placeholder="Найти...">
+  </form> */
+.search-form {
+  display: inline-block;
+  position: relative; }
+  .search-form input {
+    transition: border .15s ease-in;
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid #666;
+    border-radius: 0;
+    font-size: 2.5em;
+    padding: 15px 15px .3em .1em; }
+    .search-form input:focus {
+      border-bottom-color: #0D66D6; }
+
 /***
   List
 
@@ -770,56 +888,27 @@ blockquote {
   display: block;
   margin: 0;
   padding: 0;
-  font-size: 14px; }
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
   .list:after {
     content: '';
     display: table;
     clear: both; }
   .list > li, .list .list__item {
     display: block;
-    margin-bottom: 8px; }
-    .list > li.is-active, .list .list__item.is-active {
-      font-weight: bold;
-      text-decoration: underline; }
-    .list > li.is-private, .list .list__item.is-private {
-      opacity: .9; }
-    .list > li.is-progress, .list .list__item.is-progress {
-      font-style: italic; }
-  .list .list__children {
+    margin-bottom: 8px;
+    -webkit-user-select: initial;
+    -moz-user-select: initial;
+    -ms-user-select: initial;
+    user-select: initial; }
+  .list__children {
     margin-left: 40px; }
-  .list--sections {
-    font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
-    text-rendering: optimizeLegibility;
-    font-size: 15px; }
-  .list--inline {
-    display: inline-block; }
-    .list--inline > li, .list--inline .list__item {
-      display: inline-block;
-      margin-right: 10px; }
-  .list--nav {
-    padding-top: 4px; }
   .list--decimal > li, .list--decimal .list__item {
     display: list-item;
     list-style: decimal;
     margin-left: 1.5em; }
-  .list--menu {
-    margin-bottom: 0; }
-    .list--menu > li, .list--menu .list__item {
-      padding: 8px 10px;
-      border-width: 1px 0;
-      border-style: solid;
-      border-color: #e3e3e3;
-      margin: -1px 0;
-      cursor: pointer; }
-      .list--menu > li:hover, .list--menu .list__item:hover {
-        background-color: #f9f9f9; }
-      .list--menu > li:active, .list--menu .list__item:active {
-        background-color: #e3e3e3; }
-  .list--box > li, .list--box .list__item {
-    margin-bottom: -1px;
-    border: 1px solid #e3e3e3; }
-  .list--blocks > li, .list--blocks .list__item {
-    margin-bottom: 20px; }
   .list--scroll {
     white-space: nowrap;
     overflow-x: scroll;
@@ -828,27 +917,44 @@ blockquote {
     .list--scroll > li, .list--scroll .list__item {
       display: inline-block;
       vertical-align: top;
-      width: 100px;
-      margin: 0 10px 0 0;
+      margin-right: 10px;
       white-space: normal; }
-  .list--50 {
-    font-size: 0; }
-    .list--50 > li, .list--50 .list__item {
-      display: inline-block;
-      width: 50%;
-      font-size: 13px; }
 
-.logo .logo__img, .logo .logo__text {
-  vertical-align: middle; }
+/**
+  Book Item
 
-.logo .logo__img {
-  height: 30px;
-  display: inline-block; }
-
-.logo .logo__text {
+  Small block wit book poster and title. Can be used in horizontal list. (.list.list--scroll) */
+.book-item {
   display: inline-block;
-  font-size: 20px;
-  line-height: 30px; }
+  cursor: pointer;
+  padding: 0 2px;
+  width: 100px; }
+  .book-item__poster {
+    position: relative;
+    width: 100%;
+    height: 140px; }
+    .book-item__poster:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 -1px 3px -2px rgba(0, 0, 0, 0.9);
+      z-index: 1; }
+    .book-item__poster img {
+      height: 100%;
+      min-width: 100%; }
+  .book-item__title {
+    display: block;
+    max-height: 2.7em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre-line;
+    font-size: .9em;
+    line-height: 1.2;
+    margin: 1em 0; }
 
 /***
   Book
@@ -912,73 +1018,192 @@ blockquote {
       margin-left: 10px; } }
 
 /**
-  Book Item
-
-  Small block wit book poster and title. Can be used in horizontal list. (.list.list--scroll) */
-.book-item {
-  display: block;
-  cursor: pointer;
-  padding: 0 2px;
-  width: 100px; }
-  .book-item__poster {
-    position: relative;
-    width: 100%;
-    height: 140px; }
-    .book-item__poster:before {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      box-shadow: inset 0 -1px 3px -2px rgba(0, 0, 0, 0.9);
-      z-index: 1; }
-    .book-item__poster img {
-      height: 100%;
-      min-width: 100%; }
-  .book-item__title {
-    display: block;
-    max-height: 2.7em;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: pre-line;
-    font-size: .9em;
-    line-height: 1.2;
-    margin: 1em 0; }
-
-/***
-  Is Online
-
-  State that add to the block green circle on the left side
+  Comments Block
 
   ## Examples
 
-  ### Single element
+  ### Basic
+
   ```
-  <a href="profile.html" class="is-online">Анатолий Вассерман</a>
+  <div class="comment">
+    <div class="comment__header">
+        <a href="#/user/1" title="User 1 profile" class="is-active avatar avatar--small">
+            <img src="images/users/17.jpg" alt="User 1 profile img"/>
+        </a>
+        <a href="#/user/1" title="User 1 profile" class="avatar avatar--small">
+            <img src="images/users/20.jpg" alt="User 1 profile img"/>
+        </a>
+        <a href="#/user/1" title="User 1 profile" class="avatar avatar--small">
+            <img src="images/users/43.jpg" alt="User 1 profile img"/>
+        </a>
+        <span>и еще 14 человек</span>
+    </div>
+    <div class="comment__text">
+        Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст.
+        <!--<a href="" class="link">подробнее...</a>-->
+    </div>
+    <div class="comment__created-at">
+        12/23/15 14:23:23
+    </div>
+  </div>
   ```
 
-  ### List
+  ### Small
+
   ```
-  <ul class="list">
-      <li><a href="profile.html" class="is-online">Анатолий Вассерман</a></li>
-      <li><a href="profile.html">Борис Акунин</a></li>
-  </ul>
-  ``` */
-.is-online {
-  display: inline-block;
-  position: relative; }
-  .is-online:before {
+  <div class="comment comment--small">
+    <i class="comment__control">
+        <i class="lnr lnr-cross "></i>
+    </i>
+    <div class="comment__header">
+        <a href="" class="avatar avatar--small"><img src="images/users/53.jpg" alt=""/></a>
+    </div>
+    <div class="comment__text">
+        <a href="" class="link comment__name">Виктория Иванова</a> Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст. Конформность последовательно выбирает психоанализ.
+    </div>
+  </div>
+  ```
+
+  ### Big
+
+  <div className="comment comment--big">
+      <div className="comment__header">
+          <img src="http://unsplash.it/100/100" alt="User 1 profile img" className="avatar avatar--small"/>
+          <span className="comment__name">Виктория Иванова</span>
+          <span className="comment__time">2 days ago</span>
+      </div>
+      <div className="comment__text">
+          Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст. Конформность последовательно выбирает психоанализ.
+      </div>
+  </div> */
+.comment {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: relative;
+  display: block;
+  width: 100%; }
+  .comment__control {
+    float: right;
+    font-size: 11px;
+    cursor: pointer;
+    margin-top: 2px; }
+  .comment__name {
+    font-weight: bold;
+    color: #666; }
+  .comment__header {
+    margin-bottom: 5px; }
+    .comment__header .avatar-group {
+      margin-right: 10px; }
+    .comment__header .comment__name, .comment__header .comment__time {
+      margin-left: 10px; }
+  .comment__text {
+    text-overflow: ellipsis; }
+  .comment__created-at {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 12px;
+    color: #666; }
+  .comment--small .comment__header {
+    float: left; }
+  .comment--small .comment__text {
+    padding-left: 40px; }
+  .comment--big {
+    font-size: 1em; }
+    .comment--big .comment__header {
+      margin-bottom: 1em; }
+    .comment--big .comment__text {
+      font-size: 1.1em; }
+
+/***
+
+  Profile Header
+  Is Using to presend panel with avatar, name and some additional information, like date of creation
+  Example:
+
+  <div class="profile">
+      <div class="profile__image">
+          <img src="images/users/43.jpg" alt="">
+      </div>
+      <div class="profile__content">
+          <h2>Виктор Пелевин</h2>
+          <div>
+              <ul class="list list--inline">
+                  <li>16 подписчиков</li>
+                  <li>76 подписок</li>
+              </ul>
+          </div>
+      </div>
+  </div> */
+.profile {
+  text-align: center; }
+  .profile:after {
     content: '';
-    display: block;
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 100%;
-    left: -1em;
-    top: .5em;
-    background-color: mediumseagreen; }
+    display: table;
+    clear: both; }
+  @media screen and (min-width: 321px) {
+    .profile {
+      text-align: left; } }
+  .profile__image, .profile__content {
+    vertical-align: middle; }
+  .profile__image {
+    margin-bottom: 20px; }
+    @media screen and (min-width: 321px) {
+      .profile__image {
+        display: inline-block;
+        margin-right: 20px; } }
+  .profile__content {
+    display: inline-block; }
+    .profile__content h2 {
+      margin-bottom: 10px; }
+
+/**
+  Toolbar
+
+  Example:
+
+  <div className="toolbar">
+      <div className="toolbar__in">
+          <div className="toolbar__cell">
+              <a onClick={this.toggleSidebar} className="toolbar__menu-icon btn btn--icon">
+                  <i className="icon lnr lnr-cross"></i>
+              </a>
+          </div>
+          <h2 className="toolbar__cell toolbar__title">
+              <div className="toolbar__cell__in">
+                  <Link to="/books/1">Содержание</Link>
+              </div>
+          </h2>
+          <div className="toolbar__cell">&nbsp;</div>
+      </div>
+  </div> */
+.toolbar {
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #ccc; }
+  .toolbar:after {
+    content: '';
+    display: table;
+    clear: both; }
+  .toolbar__in {
+    width: 100%;
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: table;
+    table-layout: fixed; }
+  .toolbar__icon {
+    width: 44px; }
+  .toolbar__cell {
+    border: 1px solid #f9f9f9;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .toolbar__title {
+    width: auto;
+    padding: 0 20px; }
 
 /***
   # Feed
@@ -1239,100 +1464,6 @@ blockquote {
   padding-top: 30px; }
 
 /**
-  Comments Block
-
-  ## Examples
-
-  ### Basic
-
-  ```
-  <div class="comments-block">
-    <div class="comments-block__header">
-        <a href="#/user/1" title="User 1 profile" class="is-active avatar avatar--small">
-            <img src="images/users/17.jpg" alt="User 1 profile img"/>
-        </a>
-        <a href="#/user/1" title="User 1 profile" class="avatar avatar--small">
-            <img src="images/users/20.jpg" alt="User 1 profile img"/>
-        </a>
-        <a href="#/user/1" title="User 1 profile" class="avatar avatar--small">
-            <img src="images/users/43.jpg" alt="User 1 profile img"/>
-        </a>
-        <span>и еще 14 человек</span>
-    </div>
-    <div class="comments-block__text">
-        Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст.
-        <!--<a href="" class="link">подробнее...</a>-->
-    </div>
-    <div class="comments-block__created-at">
-        12/23/15 14:23:23
-    </div>
-  </div>
-  ```
-
-  ### Small
-
-  ```
-  <div class="comments-block comments-block--small">
-    <i class="comments-block__control">
-        <i class="lnr lnr-cross "></i>
-    </i>
-    <div class="comments-block__header">
-        <a href="" class="avatar avatar--small"><img src="images/users/53.jpg" alt=""/></a>
-    </div>
-    <div class="comments-block__text">
-        <a href="" class="link comments-block__name">Виктория Иванова</a> Придерживаясь жестких принципов социального Дарвинизма, роль отчуждает контраст. Конформность последовательно выбирает психоанализ.
-    </div>
-  </div>
-  ``` */
-.comments-block {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  line-height: 1.4;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 10px; }
-  .comments-block .comments-block__control {
-    float: right;
-    font-size: 11px;
-    cursor: pointer;
-    margin-top: 2px; }
-  .comments-block .comments-block__header {
-    margin-bottom: 5px; }
-    .comments-block .comments-block__header .comments-block__name {
-      color: #333;
-      font-weight: normal; }
-    .comments-block .comments-block__header a {
-      display: inline-block;
-      vertical-align: middle; }
-      .comments-block .comments-block__header a.is-active img {
-        border: 1px solid #666; }
-    .comments-block .comments-block__header .comments-block__name {
-      margin-left: 10px;
-      white-space: nowrap;
-      color: #666; }
-  .comments-block .comments-block__name {
-    font-weight: bold; }
-  .comments-block .comments-block__text {
-    text-overflow: ellipsis; }
-  .comments-block .comments-block__created-at {
-    margin-top: 10px;
-    width: 100%;
-    font-size: 12px;
-    color: #666; }
-  .comments-block--small .comments-block__header {
-    display: inline-block;
-    float: left; }
-  .comments-block--small .comments-block__text {
-    padding-left: 40px; }
-  .comments-block--big {
-    font-size: 1em; }
-    .comments-block--big .comments-block__header {
-      margin-bottom: 1em; }
-    .comments-block--big .comments-block__text {
-      font-size: 1.1em; }
-
-/**
  Section Content
 
  Block with content of the section. It has specific typography for comfortable reading
@@ -1431,183 +1562,6 @@ blockquote {
     top: 10px;
     left: 10px; }
 
-/**
-  # Reader Header
-
-  Header of the reader. It has buttons for navigation between section
-
-  ## Examples
-  <div class="reader-header">
-      <a href="book-reader.html" class="reader-header__menu-icon btn btn--icon btn--checkbox is-active">
-          <i class="icon lnr lnr-menu"></i>
-      </a>
-      <h2 class="reader-header__title">
-          <a href="./book-info.html">Филосовский филогенез</a>
-      </h2>
-  </div> */
-.toolbar {
-  width: 100%;
-  background-color: white;
-  border-bottom: 1px solid #ccc; }
-  .toolbar:after {
-    content: '';
-    display: table;
-    clear: both; }
-  .toolbar--footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    border-top: 1px solid #ccc;
-    border-bottom: none; }
-    @media screen and (min-width: 320px) {
-      .toolbar--footer {
-        position: static;
-        border: none; }
-        .toolbar--footer .toolbar__title {
-          text-align: left;
-          padding-left: 10px; } }
-  .toolbar__in {
-    width: 100%;
-    box-sizing: border-box;
-    vertical-align: middle;
-    display: table;
-    height: 44px; }
-  .toolbar__cell {
-    display: table-cell;
-    vertical-align: middle;
-    width: 44px; }
-    .toolbar__cell__in {
-      max-height: 44px;
-      overflow: hidden; }
-  .toolbar__title {
-    width: auto;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 1.2em;
-    max-height: 44px;
-    text-align: center; }
-
-.sidebar-wrap {
-  position: relative; }
-
-.sidebar.sidebar--modal .modal {
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0); }
-  @media screen and (min-width: 320px) {
-    .sidebar.sidebar--modal .modal {
-      position: absolute;
-      max-width: 320px;
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0); } }
-
-@media screen and (min-width: 320px) {
-  .sidebar.sidebar--modal .toolbar {
-    border: 0; } }
-
-@media screen and (min-width: 320px) {
-  .sidebar.sidebar--modal .toolbar .toolbar__cell {
-    display: none; } }
-
-@media screen and (min-width: 320px) {
-  .sidebar.sidebar--modal .toolbar .toolbar__title {
-    display: block;
-    padding-left: 10px;
-    text-align: left; } }
-
-@media screen and (min-width: 320px) {
-  .sidebar.sidebar--modal.is-active + .sidebar-content {
-    -webkit-transform: translateX(320px);
-    transform: translateX(320px); } }
-
-.sidebar.sidebar--modal.is-active .modal {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0); }
-
-.sidebar-content, .sidebar--modal .modal {
-  transition: -webkit-transform .25s ease-in 0s;
-  transition: transform .25s ease-in 0s;
-  transition: transform .25s ease-in 0s, -webkit-transform .25s ease-in 0s; }
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: white; }
-  .modal__content {
-    padding: 10px; }
-
-/***
-  Input Wrap
-
-  Input wrap block group input with accessory block on the right side
-
-  ## Example
-
-  ```
-  <div class="input-wrap">
-      <input type="text" class="input" placeholder="Написать комментарий...">
-      <button type="submit" class="reset input-wrap__accessory">
-          <i class="lnr lnr-arrow-right-circle"></i>
-      </button>
-  </div>
-  ``` */
-.input-wrap {
-  position: relative; }
-  .input-wrap .input-wrap__accessory {
-    position: absolute;
-    right: 8px;
-    top: 5px;
-    font-size: 16px;
-    color: #666; }
-
-/***
-  Search Form
-  Search form field.
-
-  ## Example
-
-  ### Compact
-  ```
-  <form class="search-form" action="search.html">
-      <div class="search-form__accessory">
-          <i class="lnr lnr-magnifier"></i>
-      </div>
-      <input type="text" class="input" placeholder="Найти...">
-  </form>
-  ```
-
-  ### Big
-
-  ```
-  <form class="search-form search-form--big" action="search.html">
-      <div class="search-form__accessory">
-          <i class="lnr lnr-magnifier"></i> // some icon
-      </div>
-      <input type="text" class="input" placeholder="Find...">
-  </form>
-  ``` */
-.search-form {
-  display: inline-block;
-  position: relative; }
-  .search-form .search-form__accessory {
-    position: absolute;
-    top: 7px;
-    left: 8px; }
-  .search-form .input {
-    padding-left: 30px;
-    border-radius: 4px;
-    outline: none; }
-  .search-form--big .input {
-    border: 0;
-    border-bottom: 2px solid #666;
-    border-radius: 0;
-    font-size: 2.5em;
-    padding-left: .1em; }
-  .search-form--big .search-form__accessory {
-    display: none; }
-
 /***
   Comments Form
   Form to add new comment
@@ -1660,100 +1614,9 @@ blockquote {
     display: table;
     clear: both; }
 
-/***
-  Book Info
-  Block with information of the book
-  Example:
-
-  <div class="book-info">
-      <a href="book-info.html" class="book-info__image">
-          <img src="images/books/book-1.png" alt="Book name" />
-      </a>
-      <div class="book-info__content">
-          <h2 class="book-info__title">
-              <a href="book-info.html">
-                  Самонаблюдение, иcходя из того, что однократно. в процессе
-              </a>
-          </h2>
-          <div class="book-info__description"><a href="users/12">Д.Майерс. 2015</a></div>
-          <p>Предсознательное, например, отталкивает закон, следовательно основной закон психофизики: ощущение изменяется пропорционально логарифму раздражителя . Но так как книга Фридмана адресована руководителям и работникам образования, то есть идентификация начинает комплекс.</p>
-      </div>
-  </div> */
-.book-info {
-  position: relative;
-  padding: 20px; }
-  .book-info:after {
-    content: '';
-    display: table;
-    clear: both; }
-  .book-info .book-info__image {
-    float: left;
-    width: 80px; }
-    .book-info .book-info__image img {
-      width: 100%; }
-  .book-info .book-info__description {
-    font-size: .9em;
-    margin: 0; }
-  .book-info .book-info__title {
-    margin-bottom: .5em; }
-  .book-info .book-info__content {
-    padding-left: 100px; }
-
-/***
-
-  Profile Header
-  Is Using to presend panel with avatar, name and some additional information, like date of creation
-  Example:
-
-  <div class="profile-header">
-      <div class="profile-header__image">
-          <img src="images/users/43.jpg" alt="">
-      </div>
-      <div class="profile-header__content">
-          <h2>Виктор Пелевин</h2>
-          <div>
-              <ul class="list list--inline">
-                  <li>16 подписчиков</li>
-                  <li>76 подписок</li>
-              </ul>
-          </div>
-      </div>
-  </div> */
-.profile-header:after {
-  content: '';
-  display: table;
-  clear: both; }
-
-.profile-header .profile-header__image, .profile-header .profile-header__content {
-  vertical-align: middle; }
-
-.profile-header .profile-header__image {
-  display: inline-block;
-  margin-right: 20px; }
-
-.profile-header .profile-header__content {
-  display: inline-block; }
-  .profile-header .profile-header__content h2 {
-    margin-bottom: 10px; }
-
-.profile-header--nav .profile-header__image {
-  margin-left: 20px;
-  margin-right: 0; }
-
 .block {
   padding-top: 20px;
   font-size: 13px; }
-
-.progress {
-  display: inline-block;
-  width: 100%;
-  background-color: #e3e3e3;
-  overflow: hidden;
-  border-radius: 2px;
-  height: 2px; }
-  .progress .progress__in {
-    background-color: #0D66D6;
-    height: 2px; }
 
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
